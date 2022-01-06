@@ -13,24 +13,27 @@ import { NotFoundPage } from './components/shared/NotFoundPage.js';
 
 
 function App() {
-  return (
+    return (
 
-    <Routes>
-      <Route path='/' element={<DefaultLayout />}>
-        <Route path='blog' element={<AllPosts />} />
-        <Route path='blog/:postId' element={<DetailsPage />} />
-        <Route path='register' element={<RegisterPage />} />
-        <Route path='login' element={<LoginPage />} />
-        <Route index element={<HomePage />} /> 
-      </Route>
+        <Routes>
+            <Route path='/' element={<DefaultLayout />}>
 
-      <Route path='*' element={<NotFoundPage/>}/>
-    </Routes>
+                <Route path='blog' element={<AllPosts />} />
+                <Route path='blog/:postId' element={<DetailsPage />} />
+                <Route path='register' element={<RegisterPage />} />
+                <Route path='login' element={<LoginPage />} />
+
+                <Route index element={<HomePage />} />
+
+            </Route>
+
+            <Route path='*' element={<NotFoundPage />} />
+        </Routes>
 
 
 
 
-  );
+    );
 }
 
 export default App;
