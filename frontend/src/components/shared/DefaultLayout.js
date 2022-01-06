@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Outlet } from "react-router-dom";
+import { Footer } from "./Footer.js";
 import { Navigation } from "./Navigation.js";
 
 
@@ -11,7 +12,9 @@ export function DefaultLayout () {
                 <Navigation/>
             </nav>
             <Outlet/>
-            <footer>Footer</footer>
+            <footer>
+                <Footer/>
+            </footer>
         </div>
     )
 }
