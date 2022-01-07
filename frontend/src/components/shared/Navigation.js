@@ -1,11 +1,15 @@
 
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext.js";
 
 
 export function Navigation () {
 
-    const isAuthenticated=false;
+
+    const {authState}= useContext(AuthContext);
+    console.log(authState)
+    const isAuthenticated=authState && authState.isAuthenticated
 
     const navigationSwitch = isAuthenticated ? (
         <ul>

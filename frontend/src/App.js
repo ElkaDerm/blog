@@ -10,10 +10,13 @@ import { DetailsPage } from "./components/blog-post/DetailsPage.js";
 import { HomePage } from "./components/home/HomePage.js";
 import { DefaultLayout } from './components/shared/DefaultLayout.js';
 import { NotFoundPage } from './components/errors/NotFoundPage.js';
+import { AuthProvider } from './context/AuthProvider.js';
 
 
 function App() {
     return (
+
+        <AuthProvider>
 
         <Routes>
             <Route path='/' element={<DefaultLayout />}>
@@ -29,6 +32,7 @@ function App() {
 
             <Route path='*' element={<NotFoundPage />} />
         </Routes>
+        </AuthProvider>
 
 
 
