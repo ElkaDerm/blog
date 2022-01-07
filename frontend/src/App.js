@@ -9,7 +9,7 @@ import { AllPosts } from './components/blog-post/AllPosts.js';
 import { DetailsPage } from "./components/blog-post/DetailsPage.js";
 import { HomePage } from "./components/home/HomePage.js";
 import { DefaultLayout } from './components/shared/DefaultLayout.js';
-import { NotFoundPage } from './components/shared/NotFoundPage.js';
+import { NotFoundPage } from './components/errors/NotFoundPage.js';
 
 
 function App() {

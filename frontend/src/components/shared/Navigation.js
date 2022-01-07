@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export function Navigation () {
 
-    const isAuthenticated=true;
+    const isAuthenticated=false;
 
     const navigationSwitch = isAuthenticated ? (
         <ul>
@@ -13,6 +13,7 @@ export function Navigation () {
 
             <Link to='/blog'>See all posts</Link>
             </li>
+
             <li>
 
             <Link to='logout'>Log out</Link>
@@ -20,7 +21,9 @@ export function Navigation () {
         </ul>
     ) : (
         <ul>
-
+                <li>
+                    <Link to='/blog'>See all posts</Link>
+                </li>
                  <li>
                      <Link to='login'>Log in</Link>
                  </li>
@@ -40,6 +43,7 @@ export function Navigation () {
              </Link>
 
             {navigationSwitch}
+
         </nav>
     )
 }
