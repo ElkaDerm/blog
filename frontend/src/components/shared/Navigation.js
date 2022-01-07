@@ -8,6 +8,7 @@ export function Navigation () {
 
 
     const {authState}= useContext(AuthContext);
+    console.log('from navigation')
     console.log(authState)
     const isAuthenticated=authState && authState.isAuthenticated
 
