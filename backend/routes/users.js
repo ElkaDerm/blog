@@ -1,5 +1,5 @@
 const router= require('express').Router();
-
+const bcrypt= require('bcrypt')
 const User= require('../models/User.js')
 
 
@@ -15,10 +15,16 @@ console.log (req.body)
  const username= req.body.username;
  const password= req.body.password;
 
-const user= await User.findOne({username,password})
+const user= await User.findOne({username})
 
     if (!user) {
         return res.status(404).send()
+    }
+
+    const passwordMatch= await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch)  {
+        return res.status(401).send()
     }
     res.status(204).send()
 })
