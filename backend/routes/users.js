@@ -11,14 +11,16 @@ router.get('/', (req , res) =>{
 
 router.post('/regist',async  (req,res,next) => {
     console.log('from backend /users/register')
-    console.log (req.body)
+    
     let username= req.body.username;
     let password= req.body.password;
+
     const hashedPass= await bcrypt.hash(password,10)
     const newUser= {username, password:hashedPass}
-    console.log (newUser)
-
-    await User.create(newUser)
+    
+    await User.create(newUser);
+    
+    //TODO: direct login functionality
    
 
 })

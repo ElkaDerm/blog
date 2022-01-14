@@ -6,7 +6,8 @@ const path= require('path')
 const cookieParser= require('cookie-parser')
 
 const indexRouter= require('./routes/index.js');
-const userRouter= require('./routes/users.js')
+const userRouter= require('./routes/users.js');
+const postRouter= require('./routes/posts.js')
 const startDB=require('./database/databaseConfig.js')
 
 const app = express()
@@ -20,7 +21,8 @@ app.use(express.json())
 app.use(urlencoded({extended:false}))
 
 app.use('/', indexRouter);
-app.use('/users', userRouter)
+app.use('/users', userRouter);
+app.use('/posts', postRouter)
 
 
 

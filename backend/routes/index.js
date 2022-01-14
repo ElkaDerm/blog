@@ -2,10 +2,10 @@
 const router= require('express').Router();
 
 
-router.get('/', (req, res) =>{
+router.get('/index', (req, res) =>{
    console.log('from index backend')
    
-    res.json('OK')
+    res.send('from router /index')
     
 })
 
