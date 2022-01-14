@@ -9,6 +9,21 @@ router.get('/', (req , res) =>{
 
 })
 
+router.post('/regist',async  (req,res,next) => {
+    console.log('from backend /users/register')
+    console.log (req.body)
+    let username= req.body.username;
+    let password= req.body.password;
+    const hashedPass= await bcrypt.hash(password,10)
+    const newUser= {username, password:hashedPass}
+    console.log (newUser)
+
+    await User.create(newUser)
+   
+
+})
+
+
 router.post('/sing_in', async (req, res, next) => {
 console.log ('from backend /users/sing_in');
 console.log (req.body)
@@ -28,5 +43,6 @@ const user= await User.findOne({username})
     }
     res.status(204).send()
 })
+
 
 module.exports= router
