@@ -1,34 +1,40 @@
 
 
-export function CreatePost ({title, postcontent}) {
 
 
-const onSubmit=(e) => {
-    e.preventDefault();
 
-    const formData= new FormData(e.currentTarget);
+export function CreatePost() {
 
 
-    const title= formData.get('title')
-    const postText= formData.get('postcontent')
+    const onSubmit = (e) => {
+        e.preventDefault();
 
-    console.log (title, postText)
-}
+        const formData = new FormData(e.currentTarget);
+
+
+        const title = formData.get('title')
+        const postText = formData.get('postcontent')
+
+        console.log(title, postText)
+    }
 
 
     return (
         <div>
-            <form  onSubmit={onSubmit}>
+            <h3>Create you post</h3>
+            <form onSubmit={onSubmit}>
                 <div>
-                <label>
-                    Title:
-                </label>
-                   <input type="text" name="title" value={title}/>
+                    <div>
+                        <label tohtml="title">Title:</label>
+                    </div>
+                    <input type="text" name="title" id="title" defaultValue="" />
                 </div>
                 <div>
-                   <label>Write your post:</label>
-                    <textarea name="postcontent" id="postcontent" value={postcontent} ></textarea>
-                    
+                    <div>
+                    <label tohtml="postcontent">Write your post:</label>
+                    </div>
+                    <textarea name="postcontent" id="postcontent" defaultValue="" ></textarea>
+
                 </div>
                 <div>
                     <button type="submit" >Submit</button>
