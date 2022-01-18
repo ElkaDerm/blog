@@ -1,3 +1,4 @@
+import { createPost } from "../../service/postService.js";
 
 
 
@@ -15,6 +16,7 @@ export function CreatePost() {
         const title = formData.get('title')
         const postText = formData.get('postcontent')
 
+        createPost(title, postText)
         console.log(title, postText)
     }
 
