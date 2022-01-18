@@ -9,8 +9,10 @@ try {
 
   console.log ('sing in from authservice')
     
+    
 } catch (error) {
-    console.log (error.message)
+    
+    throw new Error('Not loged in from authService')
 }
 }
 

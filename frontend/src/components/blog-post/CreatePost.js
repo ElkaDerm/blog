@@ -23,17 +23,17 @@ export function CreatePost() {
 
     return (
         <div>
-            <h3>Create you post</h3>
+            <h3>Create your post</h3>
             <form onSubmit={onSubmit}>
                 <div>
                     <div>
-                        <label tohtml="title">Title:</label>
+                        <label htmlFor="title">Title:</label>
                     </div>
                     <input type="text" name="title" id="title" defaultValue="" />
                 </div>
                 <div>
                     <div>
-                    <label tohtml="postcontent">Write your post:</label>
+                    <label htmlFor="postcontent">Write your post:</label>
                     </div>
                     <textarea name="postcontent" id="postcontent" defaultValue="" ></textarea>
 

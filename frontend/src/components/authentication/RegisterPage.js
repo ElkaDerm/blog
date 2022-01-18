@@ -5,45 +5,54 @@ import { authRegister } from "../../service/authService.js";
 
 
 
-export function RegisterPage () {
+export function RegisterPage() {
 
 
- function submit (e) {
+    function submit(e) {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    const formData= new FormData(e.currentTarget);
+        const formData = new FormData(e.currentTarget);
 
-    let username= formData.get('username');
-    let password= formData.get('password');
-    let repeatPassword= formData.get('repeatPass');
-  
-    if (password !== repeatPassword) {
-        throw new Error('Passwords do not match!');
+        let username = formData.get('username');
+        let password = formData.get('password');
+        let repeatPassword = formData.get('repeatPass');
+
+        if (password !== repeatPassword) {
+            throw new Error('Passwords do not match!');
+        }
+
+        authRegister(username, password);
+        // TODO : direct log in
+
+
+        console.log('after authRegister')
     }
-
-    authRegister(username, password);
-    // TODO : direct log in
-    
-
-    console.log ('after authRegister')
-}
 
 
     return (
         <form onSubmit={submit} method="POST" >
             <div>
-                <input type="text" name="username" defaultValue=''  
-               />
-            </div>
-            <div>
-                <input type="password" name="password" defaultValue='' 
+                <div>
+                    <label htmlFor="username">Username:</label>
+                </div>
+                <input type="text" name="username" defaultValue=''
                 />
             </div>
             <div>
+                <div>
+                    <label htmlFor="password">Password:</label>
+                </div>
+                <input type="password" name="password" defaultValue=''
+                />
+            </div>
+            <div>
+                <div>
+                    <label htmlFor="repeatPass">Repeat password:</label>
+                </div>
                 <input type="password" name="repeatPass" defaultValue=''
-                
-           />
+
+                />
             </div>
             <button type="submit">Register</button>
         </form>
