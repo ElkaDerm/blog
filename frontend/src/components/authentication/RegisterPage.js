@@ -1,12 +1,14 @@
-import { useState } from "react";
-
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext.js";
 import { authRegister } from "../../service/authService.js";
-
+import {useNavigate} from "react-router-dom"
 
 
 
 export function RegisterPage() {
 
+    const {authenticate} = useContext(AuthContext)
+    const navigate= useNavigate()
 
     function submit(e) {
 
@@ -24,9 +26,12 @@ export function RegisterPage() {
 
         authRegister(username, password);
         // TODO : direct log in
-
-
+        
+        authenticate(username, password)
         console.log('after authRegister')
+
+        navigate('/')
+
     }
 
 

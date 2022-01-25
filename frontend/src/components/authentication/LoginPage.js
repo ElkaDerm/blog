@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext.js";
+import { useNavigate } from "react-router-dom";
+
 
 export function LoginPage() {
 
@@ -9,6 +11,10 @@ export function LoginPage() {
         username: '',
         password: ''
     })
+
+    const navigate= useNavigate();
+
+    
     function onSubmit(e) {
         e.preventDefault();
         console.log('from login')
@@ -16,6 +22,7 @@ export function LoginPage() {
         console.log(state.password)
         authenticate(state.username, state.password)
 
+        navigate('/')
 
 
     }
