@@ -12,9 +12,15 @@ import { HomePage } from "./components/home/HomePage.js";
 import { DefaultLayout } from './components/shared/DefaultLayout.js';
 import { NotFoundPage } from './components/errors/NotFoundPage.js';
 import { AuthProvider } from './context/AuthProvider.js';
+import { AuthContext } from './context/AuthContext.js';
 
 
 function App() {
+
+
+    const logout= () => {
+           console.log ()
+    }
     return (
 
         <AuthProvider>
@@ -27,6 +33,7 @@ function App() {
                 <Route path='blog/:postId' element={<DetailsPage />} />
                 <Route path='register' element={<RegisterPage />} />
                 <Route path='login' element={<LoginPage />} />
+                <Route path='logout' element={<HomePage onLogout={logout}/>} />
 
                 <Route index element={<HomePage />} />
 

@@ -10,11 +10,13 @@ export async function singIn (username, password) {
         body:JSON.stringify({username,password})
     })
       const user= await response.json()
-      console.log(user)
+    
 
-    if (response.status !== 204) {
+    if (!user) {
         throw new Error('Log in failed')
     }
+     return user
+     
 
 }
 
@@ -33,4 +35,6 @@ export async function register (username, password) {
     }
 
 }
+ export async function logout(username) {
 
+ }

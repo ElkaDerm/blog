@@ -1,5 +1,5 @@
 import { createPost } from "../../service/postService.js";
-
+import {useNavigate} from "react-router-dom"
 import {useContext} from 'react';
 import { AuthContext } from "../../context/AuthContext.js";
 
@@ -7,8 +7,11 @@ import { AuthContext } from "../../context/AuthContext.js";
 
 
 export function CreatePost() {
+    const navigate= useNavigate();
+
 
     const {authState}= useContext(AuthContext)
+
     const userId=authState.userId;
     console.log(userId);
 
@@ -24,6 +27,8 @@ export function CreatePost() {
 
         createPost(title, postText, userId)
         console.log(title, postText)
+
+        navigate('/blog')
     }
 
 

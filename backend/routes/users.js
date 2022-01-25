@@ -46,8 +46,12 @@ router.post('/sing_in', async (req, res, next) => {
     }
     res.locals._id=user._id
     console.log(user)
-    res.status(204).send()
+    res.json(user)
 
+    
+})
+
+router.post('/logout' , async (req, res) =>{
     
 })
 

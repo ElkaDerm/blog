@@ -7,7 +7,9 @@ router.get('/', async (req, res) => {
     console.log('from /posts...')
 
     
-   const allPosts= await Post.find()
+   const allPosts= await Post.find({})
+
+   console.log (allPosts)
    console.log ('send all posts....')
     res.json(allPosts)
 })
