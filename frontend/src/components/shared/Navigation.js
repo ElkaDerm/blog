@@ -9,11 +9,14 @@ export function Navigation() {
 
     const { authState } = useContext(AuthContext);
     console.log('from navigation')
-    console.log(authState)
-    const isAuthenticated = authState && authState.isAuthenticated
+    console.log(authState.username)
+
+    const greetingText= authState.username;
+    const isAuthenticated = authState && authState.isAuthenticated;
 
     const navigationSwitch = isAuthenticated ? (
         <ul>
+            <span>Wellcome, {greetingText}</span>
             <li>
 
                 <Link to='/blog'>See all posts</Link>

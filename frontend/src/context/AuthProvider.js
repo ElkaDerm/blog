@@ -6,7 +6,7 @@ import { AuthContext } from "./AuthContext.js";
 
 export function AuthProvider ({children}) {
 
-    const [authState, setAuthState] = useState({isAuthenticated:false, errorMessage:undefined});
+    const [authState, setAuthState] = useState({isAuthenticated:false,username:'', errorMessage:undefined});
     
     const authenticate= useCallback(async (username, password) => {
 
@@ -14,7 +14,7 @@ export function AuthProvider ({children}) {
             
             await login(username,password);
 
-            setAuthState({isAuthenticated:true});
+            setAuthState({isAuthenticated:true, username});
 
         }catch (err) {
             
