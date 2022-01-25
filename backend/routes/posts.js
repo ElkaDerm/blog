@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     
    const allPosts= await Post.find()
    console.log ('send all posts....')
-    res.send(allPosts)
+    res.json(allPosts)
 })
 
 router.post('/create',async (req, res) =>{
@@ -18,7 +18,8 @@ router.post('/create',async (req, res) =>{
     //TODO: save the post in DB
    const title= req.body.title;
    const textBody= req.body.postText
-    const newPost={title, textBody}
+   const owner= req.body.owner
+    const newPost={title, textBody, owner}
     await Post.create(newPost)
 })
 

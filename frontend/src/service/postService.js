@@ -1,10 +1,10 @@
 import { create } from "../client/blog-post.js";
 
 
-export async function createPost (title, postText) {
+export async function createPost (title, postText, userId) {
 
     try {
-        await create (title, postText);
+        await create (title, postText, userId);
         console.log('Post is created!...from postService');
 
 

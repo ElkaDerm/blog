@@ -6,15 +6,20 @@ import { AuthContext } from "./AuthContext.js";
 
 export function AuthProvider ({children}) {
 
-    const [authState, setAuthState] = useState({isAuthenticated:false,username:'', errorMessage:undefined});
+    const [authState, setAuthState] = useState({
+        isAuthenticated:false,
+        username:'',
+        userId:'',
+        token:'',
+        errorMessage:undefined});
     
     const authenticate= useCallback(async (username, password) => {
 
         try{
             
-            await login(username,password);
+          const user=  await login(username,password);
 
-            setAuthState({isAuthenticated:true, username});
+            setAuthState({isAuthenticated:true,username:user.username,userId:user._id, token:''});
 
         }catch (err) {
             
