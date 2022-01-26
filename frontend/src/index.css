@@ -1,13 +1,263 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  box-sizing: border-box;
+ 
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+.background {  
+  margin: 0;
+  padding: 0;
+  background-image: url('../public/images/create-post-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+.form{
+  text-align: justify;
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  margin: 5vh 24vw;
+  padding-bottom: 10vh;
+ 
+}
+
+.form h3{
+  text-align: center;
+  font-size: 25pt;
+  padding-top: 10vh;
+}
+
+.form label {
+  text-align: left;
+  font-size: 20pt;
+  width: 50vw;
+  height: 10vh;
+  margin: 10vh 0;
+}
+
+.form input {
+  width: 50vw;
+  height: 5vh;
+  font-size: 13pt;
+
+}
+
+.form input:focus, .login input:focus {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.274);;
+  border-radius: 10px;
+  border-color: transparent;
+}
+
+.textareaLabel {
+  margin: 3vh 5vh 0 0;
+}
+
+.form textarea {
+  width: 50vw;
+  height: 40vh;
+  font-size: 13pt;
+
+  -webkit-transition: height .35s ease-in-out;
+  transition: height .35s ease-in-out;
+}
+
+.form textarea:focus {
+  height: 45vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.274);;
+  border-radius: 10px;
+  border-color: transparent;
+
+  }
+
+  .form button {
+    width: 10vw;
+    height: 5vh;
+    
+    border-radius: 10px;
+    border-color: transparent;
+    
+    background-color: darkcyan;
+    color: #333;
+    font-size: 15pt;
+    font-weight: bold;
+    margin-left: 20vw;
+  }
+  
+  .form button:hover , .login button:hover{
+  cursor: pointer;
+  background-color: #333;
+  color: whitesmoke;
+  border-radius: 10px;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    margin: 0;
+    width: 100vw;
+  }
+nav ul {
+  position:relative;
+  margin: auto;
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-bottom: 1vh;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  margin: 0;
+  padding:0;
+}
+
+li a {
+  display: block;
+  position: relative;
+  top: 8px;
+
+  text-decoration: none;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+  text-align: center;
+  padding: 14px 16px;
+  
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color:darkcyan;
+  border-radius: 10px;
+  color: #333;
+}
+#home {
+  padding-right: 70vw;
+  padding-bottom: 1vh;
+  margin: auto;
+
+  text-align: justify;
+  font-display:inherit;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: bold;
+
+}
+#greeting {
+  position: fixed;
+  right: 30vw;
+  top:1vh;
+  color:darkcyan;
+  font-size:inherit;
+  font-weight: bold;
+  
+}
+
+.footer{
+   position: fixed;
+   width: 100vw;
+   height: fit-content;
+   
+   bottom: 0;
+   
+   color: white;
+   font-size: 12pt;
+   text-align:center;
+  
+   margin:0;
+   padding:0;
+   background-color: #333;
+
+ }
+
+ div .login {
+   width: 100vw;
+   height: 100vh;
+   background-image: url('../public/images/modern-desk-white.jpg');
+   background-size: cover;
+   background-position: center;
+   
+ }
+
+ .login form {
+  
+  text-align: justify;
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+
+  position: relative;
+  top: 30vh;
+  
+  margin: auto;
+  padding: 15vh 5vw;
+  border: 7px solid darkcyan;
+  border-radius: 15px ;
+
+  width: 22vw;
+  height: 20vh;
+ }
+
+ .login h3 {
+  position: absolute;
+  left: 36.5%;
+  top: 35vh;
+  left: 44vw;
+
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  font-size: 20pt;
+  padding: 2vh;
+  margin: 2vh;
+}
+
+ .login label {
+  text-align: left;
+  font-size: 15pt;
+ 
+  width: 50vw;
+  height: 10vh;
+ 
+  margin: 10vh 0;
+}
+
+.login input {
+  width: 100%;
+  height: 3vh;
+  font-size: 10pt;
+
+ }
+
+ .login button {
+  width: 8vw;
+  height: 5vh;
+  position: absolute;
+  left: 14.5vw;
+  
+  border-radius: 10px;
+  border-color: transparent;
+  
+  background-color: darkcyan;
+  color: #333;
+  font-size: 12pt;
+  font-weight: bold;
+ 
+  margin-top: 5vh;
+  margin-left: 5vw;
+}
+

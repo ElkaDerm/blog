@@ -12,9 +12,9 @@ export function LoginPage() {
         password: ''
     })
 
-    const navigate= useNavigate();
+    const navigate = useNavigate();
 
-    
+
     function onSubmit(e) {
         e.preventDefault();
         console.log('from login')
@@ -27,22 +27,26 @@ export function LoginPage() {
 
     }
     return (
-        <form onSubmit={onSubmit}>
-            <div>
-                <div>
-                    <label htmlFor="username">Username:</label>
+        <div className="login">
+            <h3>Log in:</h3>
+            
+            <form onSubmit={onSubmit}>
+                <div> 
+                    <div>
+                        <label htmlFor="username">Username:</label>
+                    </div>
+                    <input type="text" name="username" value={state.username}
+                        onChange={(e) => setState((previousState) => ({ ...previousState, username: e.target.value }))} />
                 </div>
-                <input type="text" name="username" value={state.username}
-                    onChange={(e) => setState((previousState) => ({ ...previousState, username: e.target.value }))} />
-            </div>
-            <div>
                 <div>
-                    <label htmlFor="password">Password:</label>
+                    <div>
+                        <label htmlFor="password">Password:</label>
+                    </div>
+                    <input type="password" name="password" value={state.password}
+                        onChange={(e) => setState((previousState) => ({ ...previousState, password: e.target.value }))} />
                 </div>
-                <input type="password" name="password" value={state.password}
-                    onChange={(e) => setState((previousState) => ({ ...previousState, password: e.target.value }))} />
-            </div>
-            <button type="submit">Log in</button>
-        </form>
+                <button type="submit">Log in</button>
+            </form>
+        </div>
     )
 }

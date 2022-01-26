@@ -1,18 +1,18 @@
 import { createPost } from "../../service/postService.js";
-import {useNavigate} from "react-router-dom"
-import {useContext} from 'react';
+import { useNavigate } from "react-router-dom"
+import { useContext } from 'react';
 import { AuthContext } from "../../context/AuthContext.js";
 
 
 
 
 export function CreatePost() {
-    const navigate= useNavigate();
+    const navigate = useNavigate();
 
 
-    const {authState}= useContext(AuthContext)
+    const { authState } = useContext(AuthContext)
 
-    const userId=authState.userId;
+    const userId = authState.userId;
     console.log(userId);
 
 
@@ -33,7 +33,10 @@ export function CreatePost() {
 
 
     return (
-        <div>
+        <div className="background">
+
+        
+        <div className="form">
             <h3>Create your post</h3>
             <form onSubmit={onSubmit}>
                 <div>
@@ -43,8 +46,8 @@ export function CreatePost() {
                     <input type="text" name="title" id="title" defaultValue="" />
                 </div>
                 <div>
-                    <div>
-                    <label htmlFor="postcontent">Write your post:</label>
+                    <div className="textareaLabel">
+                        <label htmlFor="postcontent">Write your post:</label>
                     </div>
                     <textarea name="postcontent" id="postcontent" defaultValue="" ></textarea>
 
@@ -54,6 +57,7 @@ export function CreatePost() {
                 </div>
 
             </form>
+        </div>
         </div>
     )
 }

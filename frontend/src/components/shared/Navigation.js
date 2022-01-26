@@ -11,12 +11,21 @@ export function Navigation() {
     console.log('from navigation')
     console.log(authState.username)
 
-    const greetingText= authState.username;
+    const greetingText = authState.username;
     const isAuthenticated = authState && authState.isAuthenticated;
 
     const navigationSwitch = isAuthenticated ? (
         <ul>
-            <span>Wellcome, {greetingText}</span>
+            <li id="home">
+                <Link to='/'>
+                    <strong>Blog</strong>
+                </Link>
+
+            </li>
+            <li>
+
+                <Link to='profile' id="greeting">Wellcome, {greetingText} !</Link>
+            </li>
             <li>
 
                 <Link to='/blog'>See all posts</Link>
@@ -31,6 +40,11 @@ export function Navigation() {
         </ul>
     ) : (
         <ul>
+            <li id="home">
+                <Link to='/'>
+                   <strong>Blog</strong> 
+                </Link>
+            </li>
             <li>
                 <Link to='/blog'>See all posts</Link>
             </li>
@@ -46,13 +60,14 @@ export function Navigation() {
 
 
     return (
-        <nav>
+        <nav >
 
-            <Link to='/'>
+            {/* <Link to='/'>
                 <strong>Blog</strong>
-            </Link>
+            </Link> */}
 
             {navigationSwitch}
+
 
         </nav>
     )

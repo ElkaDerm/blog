@@ -2,7 +2,7 @@
 import { allPostsData } from "../../service/postService.js"
 
 import { useState, useEffect } from "react";
-
+import { OnePostHome } from "./OnePostHome.js";
 
 
 export function AllPosts () {
@@ -30,10 +30,10 @@ export function AllPosts () {
 
 
     return (
-        <div>
+        <div className="container">
 
             {!state ? <p>Not created posts in DB</p>
-            :state.map(x => <p key={x.title}>{x.title}</p>)}
+            :state.map(x => <OnePostHome key={x._id} data={x}/>)}
 
         </div>
 

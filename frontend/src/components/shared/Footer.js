@@ -2,8 +2,8 @@
 
 export function Footer () {
     return (
-        <div>
-            Copy right@
+        <div className="footer">
+           <p>Copy right@</p> 
         </div>
     )
 }
