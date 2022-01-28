@@ -28,7 +28,7 @@ export function LoginPage() {
     }
     return (
         <div className="login">
-            <h3>Log in:</h3>
+            <h3>Log in</h3>
             
             <form onSubmit={onSubmit}>
                 <div> 

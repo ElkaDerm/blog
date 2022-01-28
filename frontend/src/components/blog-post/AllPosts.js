@@ -30,7 +30,8 @@ export function AllPosts () {
 
 
     return (
-        <div className="container">
+        
+        <div className="grid-container">
 
             {!state ? <p>Not created posts in DB</p>
             :state.map(x => <OnePostHome key={x._id} data={x}/>)}

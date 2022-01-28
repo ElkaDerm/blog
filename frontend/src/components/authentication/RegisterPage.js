@@ -31,14 +31,15 @@ export function RegisterPage() {
         console.log('after authRegister')
 
         navigate('/')
-
+       
     }
 
 
     return (
 
-        <div className="container">
+        <div className="register">
             <form onSubmit={submit} method="POST" >
+                <h3> Register Form </h3>
                 <div>
                     <div>
                         <label htmlFor="username">Username:</label>

@@ -13,6 +13,7 @@ import { DefaultLayout } from './components/shared/DefaultLayout.js';
 import { NotFoundPage } from './components/errors/NotFoundPage.js';
 import { AuthProvider } from './context/AuthProvider.js';
 import { AuthContext } from './context/AuthContext.js';
+import { OnePostHome } from './components/blog-post/OnePostHome.js';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                 <Route path='create' element={<CreatePost />} />
                 <Route path='blog/:postId' element={<DetailsPage />} />
                 <Route path='register' element={<RegisterPage />} />
+                <Route path='details' element={<DetailsPage />} />
                 <Route path='login' element={<LoginPage />} />
                 <Route path='logout' element={<HomePage onLogout={logout}/>} />
 
