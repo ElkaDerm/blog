@@ -33,7 +33,6 @@ function App() {
                 <Route path='create' element={<CreatePost />} />
                 <Route path='blog/:postId' element={<DetailsPage />} />
                 <Route path='register' element={<RegisterPage />} />
-                <Route path='details' element={<DetailsPage />} />
                 <Route path='login' element={<LoginPage />} />
                 <Route path='logout' element={<HomePage onLogout={logout}/>} />
 

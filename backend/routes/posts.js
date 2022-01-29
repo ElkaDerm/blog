@@ -1,4 +1,4 @@
-const router = require('express').Router();
+const router = require('express').Router({mergeParams:true});
 const Post = require('../models/Post.js')
 
 
@@ -23,6 +23,13 @@ router.post('/create', async (req, res) => {
     const owner = req.body.owner
     const newPost = { title, textBody, owner }
     await Post.create(newPost)
+})
+
+router.get('/:postId', async(req,res) =>  {
+
+    const post = await Post.findById({_id:req.params.postId}).populate('owner').lean();
+
+    res.json(post)
 })
 
 

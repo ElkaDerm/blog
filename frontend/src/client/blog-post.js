@@ -25,9 +25,13 @@ export async function getAll() {
     const data = await res.json()
 
 
-    return data
+    return data;
 
+}
 
+export async function getOne (postId) {
+    const res= await fetch (`/posts/${postId}`);
 
-
+    const data= await res.json();
+    return data;
 }

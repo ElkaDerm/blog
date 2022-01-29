@@ -516,26 +516,116 @@ nav li a:hover {
    } */
 
    .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 5vw;
-    
-    padding: 1vw;
+   
     position:relative;
     top:7vh;
-    width: 100vw;
-    height: 85vh;
+
+    overflow-y: scroll;
+
+    text-align: center;
+    border-radius: 4px;
+
     background-image: url('../public/images/retro-homePage.jpg');
     background-size: cover;
 
-    margin: 0;
-
-
+    margin: auto;
+    padding: 0;
+    height: 91vh;
   }
   
   .grid-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid black;
-    text-align: center;
+    
+    
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+    border: 1px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+
+    
+    text-align: justify;
     font-size: 30px;
+    
+    display: block;
+    float: left;
+    width: 29vw;
+    height: 37vh;
+    
+    margin: 1.8vw;
+ 
+  }
+
+  .onePost > .author {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: rgba(183, 224, 224, 1);
+    text-align: right;
+    padding: 1%;
+    margin: 1%;
+  }
+
+  .onePost > div> .onePostTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    color: lightseagreen;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  .onePost>div>article {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: aliceblue;
+    text-align: left;
+    font-weight: normal;
+    
+    display: block;
+    width: 27vw;
+    height: 13vh;
+    margin: auto;
+    padding: 3%;
+
+    overflow: hidden;
+
+  }
+
+  .onePost > .likeButton {
+
+    margin-top: 4vh;
+  }
+
+
+  .onePost> div>button > a {
+  
+    font-size: 16pt;
+    color: aliceblue;
+    background-color:transparent;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+  }
+    
+  .onePost> div> button {
+    background-color: transparent;
+    border-radius: 10px;
+    position: relative;
+    left: 1vw;
+  }
+
+  .onePost> div> button:hover {
+  background-color: lightseagreen;
+  color: aliceblue;
+
+  }
+
+
+
+  .onePost> div> span {
+    
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkcyan;
+    font-style: italic;
+    padding: 2vw;
+
   }

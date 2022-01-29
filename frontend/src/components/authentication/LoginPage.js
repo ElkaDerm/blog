@@ -22,7 +22,7 @@ export function LoginPage() {
         console.log(state.password)
         authenticate(state.username, state.password)
 
-        navigate('/')
+        navigate('/blog')
 
 
     }
