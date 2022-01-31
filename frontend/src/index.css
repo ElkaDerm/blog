@@ -401,6 +401,13 @@ nav li a:hover {
     background-position: center;
     
   }
+  .details #author {
+    position:absolute;
+    font-size: 17pt;
+    color: tomato;
+    top:12vh;
+    left:45vw;
+  }
   .details h3 {
    position: absolute;
    top: 10vh;
@@ -487,6 +494,13 @@ nav li a:hover {
      padding: 1vw;
      overflow-y: auto;
      
+   }
+   .details span {
+     position:absolute;
+     top:84vh;
+     left:46vw;
+     font-size: 17pt;
+     color: tomato;
    }
    /* div .onePost{
      position: absolute;
