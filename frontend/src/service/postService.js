@@ -1,4 +1,4 @@
-import { create, getAll } from "../client/blog-post.js";
+import { create, getAll, getOne } from "../client/blog-post.js";
 
 
 export async function createPost (title, postText, userId) {
@@ -22,6 +22,17 @@ export async function allPostsData () {
         
           return result;
 
+    } catch (error) {
+        console.log (error.message)
+    }
+}
+
+export async function getOnePost (postId) {
+
+    try {
+        const result= await getOne(postId);
+        return result;
+        
     } catch (error) {
         console.log (error.message)
     }

@@ -5,39 +5,39 @@ import { useState, useEffect } from "react";
 import { OnePostHome } from "./OnePostHome.js";
 
 
-export function AllPosts () {
-    
+export function AllPosts() {
 
-    console.log (`from AllpostPage .....`)
-    
+
+    console.log(`from AllpostPage .....`)
+
     const [state, setState] = useState([]);
 
-    useEffect( ()=>{
+    useEffect(() => {
 
         async function data() {
-            const result= await allPostsData()
+            const result = await allPostsData();
+
             setState(result)
 
         }
         data()
-        
-    }, [])
-    
-     
 
-    console.log (state)
+    }, [])
+
+
+    console.log(state)
 
 
 
     return (
-        
+
         <div className="grid-container">
 
             {!state ? <p>Not created posts in DB</p>
-            :state.map(x => <OnePostHome key={x._id} data={x}/>)}
+                : state.map(x => <OnePostHome key={x._id} data={x} />)}
 
         </div>
 
-    
+
     )
 }

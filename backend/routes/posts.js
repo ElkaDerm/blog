@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     console.log('from /posts...')
 
 
-    const allPosts = await Post.find({})
+    const allPosts = await Post.find({}).populate('owner')
 
     console.log(allPosts)
     console.log('send all posts....')
@@ -27,7 +27,7 @@ router.post('/create', async (req, res) => {
 
 router.get('/:postId', async(req,res) =>  {
 
-    const post = await Post.findById({_id:req.params.postId}).populate('owner').lean();
+    const post = await Post.findById({_id:req.params.postId}).populate('owner');
 
     res.json(post)
 })
