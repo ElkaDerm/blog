@@ -566,6 +566,13 @@ nav li a:hover {
     margin: 1.8vw;
  
   }
+  .grid-container > p {
+    position:absolute;
+    top: 36vh;
+    left:2vw;
+    font-size: 40pt;
+    text-decoration-line: underline;
+  }
 
   .onePost > .author {
     font-family: Arial, Helvetica, sans-serif;

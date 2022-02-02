@@ -33,7 +33,7 @@ export function AllPosts() {
 
         <div className="grid-container">
 
-            {!state ? <p>Not created posts in DB</p>
+            {!state ? <p>No posts found!</p>
                 : state.map(x => <OnePostHome key={x._id} data={x} />)}
 
         </div>

@@ -27,7 +27,7 @@ export function OnePostHome({ data }) {
                 <button type="button">
                     <Link to={`/blog/${data._id}`}>Details</Link>
                 </button>
-                <span> Like count: {data.likeCount} </span>
+                <span> Like count: {data.likeCount?.length} </span>
 
             </div>
         </div>

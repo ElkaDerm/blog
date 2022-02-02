@@ -1,6 +1,6 @@
 
 
-export async function create(title, postText, userId) {
+export async function create(title, postText, userId, token) {
 
     const response = await fetch("/posts/create", {
         method: "POST",
@@ -34,4 +34,15 @@ export async function getOne (postId) {
 
     const data= await res.json();
     return data;
+}
+
+export async function deletePost (postId, token) {
+    const res = await fetch (`/posts/delete/${postId}`, {
+        method:'DELETE',
+        headers:{
+            "Content-type":"application/json"
+        }
+    });
+    console.log(res.status)
+    
 }

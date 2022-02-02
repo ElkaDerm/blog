@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { getOnePost } from "../../service/postService.js";
+import { deleteOnePost, getOnePost } from "../../service/postService.js";
 import { AuthContext } from "../../context/AuthContext.js";
 
 export function DetailsPage() {
     const { authState } = useContext(AuthContext);
+    const navigate= useNavigate();
     const userId = authState.userId;
     const params = useParams()
 
@@ -30,6 +31,13 @@ export function DetailsPage() {
     
     const owner = post.owner;
 
+    async function deleteFunc(e) {
+        e.preventDefault();
+        
+        deleteOnePost(post._id)
+        console.log('is deleteed from detailsPage');
+        navigate('/blog')
+    }
 
     function buttonSwitch(userId, owner) {
 
@@ -55,7 +63,7 @@ export function DetailsPage() {
                             <Link to={`/edit/${postId}`}>Edit</Link>
                         </li>
                         <li>
-                            <Link to={`/blog/delete/${postId}`}>Delete</Link>
+                           <Link to={`/blog`} onClick={deleteFunc}>Delete</Link>
                         </li>
 
                     </ul>
@@ -66,7 +74,7 @@ export function DetailsPage() {
                     return (
                         <ul>
                             <li>
-                                <Link to={`/blog/rating/${postId}`}>Like</Link>
+                                <Link to={`/blog/rating/${postId}`} >Like</Link>
                             </li>
                         </ul>
                     )
@@ -82,6 +90,7 @@ export function DetailsPage() {
 
     }
 
+
     return (
         <div className="details">
             <span id="author">Author : {owner ? owner.username : ''}</span>
@@ -95,7 +104,7 @@ export function DetailsPage() {
 
             {buttonSwitch(userId, owner)}
 
-            <span> {post.likeCount} likes</span>
+            <span> {post.likeCount?.length} likes</span>
 
 
 

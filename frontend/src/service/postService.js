@@ -1,4 +1,4 @@
-import { create, getAll, getOne } from "../client/blog-post.js";
+import { create, getAll, getOne, deletePost } from "../client/blog-post.js";
 
 
 export async function createPost (title, postText, userId) {
@@ -33,6 +33,16 @@ export async function getOnePost (postId) {
         const result= await getOne(postId);
         return result;
         
+    } catch (error) {
+        console.log (error.message)
+    }
+}
+
+export async function deleteOnePost (postId, token) {
+    try {
+        await deletePost (postId)
+       console.log(`post is deleted...`)
+
     } catch (error) {
         console.log (error.message)
     }

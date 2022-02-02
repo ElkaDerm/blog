@@ -32,5 +32,14 @@ router.get('/:postId', async(req,res) =>  {
     res.json(post)
 })
 
+router.delete('/delete/:postId',async (req, res) => {
+
+    const postId= req.params.postId
+    console.log (postId);
+    const response= await Post.findByIdAndDelete(postId)
+    console.log(`${response} ....from postsDB`)
+    res.sendStatus(200);
+})
+
 
 module.exports = router
