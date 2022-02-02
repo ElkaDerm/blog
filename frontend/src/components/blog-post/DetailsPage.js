@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/AuthContext.js";
 
 export function DetailsPage() {
     const { authState } = useContext(AuthContext);
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     const userId = authState.userId;
     const params = useParams()
 
@@ -28,12 +28,12 @@ export function DetailsPage() {
 
     }, [postId]);
 
-    
+
     const owner = post.owner;
 
     async function deleteFunc(e) {
         e.preventDefault();
-        
+
         deleteOnePost(post._id)
         console.log('is deleteed from detailsPage');
         navigate('/blog')
@@ -47,13 +47,9 @@ export function DetailsPage() {
             return (
                 ''
             )
-        }
-
-
-
-        else {
+        } else {
             if (owner) {
-                
+
                 const ownerId = owner._id
 
                 if (ownerId === userId) {
@@ -63,14 +59,13 @@ export function DetailsPage() {
                             <Link to={`/edit/${postId}`}>Edit</Link>
                         </li>
                         <li>
-                           <Link to={`/blog`} onClick={deleteFunc}>Delete</Link>
+                            <Link to={`/blog`} onClick={deleteFunc}>Delete</Link>
                         </li>
 
                     </ul>
 
                     )
-                }
-                else {
+                } else {
                     return (
                         <ul>
                             <li>

@@ -14,6 +14,7 @@ import { NotFoundPage } from './components/errors/NotFoundPage.js';
 import { AuthProvider } from './context/AuthProvider.js';
 import { AuthContext } from './context/AuthContext.js';
 import { OnePostHome } from './components/blog-post/OnePostHome.js';
+import { EditPage } from './components/blog-post/EditPage.js';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                 <Route path='blog' element={<AllPosts />} />
                 <Route path='create' element={<CreatePost />} />
                 <Route path='blog/:postId' element={<DetailsPage />} />
+                <Route path='edit/:postId' element={<EditPage />} />
                 <Route path='register' element={<RegisterPage />} />
                 <Route path='login' element={<LoginPage />} />
                 <Route path='logout' element={<HomePage onLogout={logout}/>} />

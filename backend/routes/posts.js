@@ -1,43 +1,49 @@
-const router = require('express').Router({mergeParams:true});
+const router = require('express').Router({ mergeParams: true });
 const Post = require('../models/Post.js')
 
 
 
 router.get('/', async (req, res) => {
-    console.log('from /posts...')
+    
+    const allPosts = await Post.find({}).populate('owner');
 
-
-    const allPosts = await Post.find({}).populate('owner')
-
-    console.log(allPosts)
-    console.log('send all posts....')
-    res.json(allPosts)
+    res.json(allPosts);
 })
 
 router.post('/create', async (req, res) => {
-    console.log(req.body)
+    
 
-    //TODO: save the post in DB
     const title = req.body.title;
-    const textBody = req.body.postText
-    const owner = req.body.owner
-    const newPost = { title, textBody, owner }
+    const textBody = req.body.postText;
+    const owner = req.body.owner;
+    const newPost = { title, textBody, owner };
     await Post.create(newPost)
 })
 
-router.get('/:postId', async(req,res) =>  {
+router.get('/:postId', async (req, res) => {
 
-    const post = await Post.findById({_id:req.params.postId}).populate('owner');
+    const post = await Post.findById({ _id: req.params.postId }).populate('owner');
 
     res.json(post)
 })
 
-router.delete('/delete/:postId',async (req, res) => {
+router.delete('/delete/:postId', async (req, res) => {
 
-    const postId= req.params.postId
-    console.log (postId);
-    const response= await Post.findByIdAndDelete(postId)
-    console.log(`${response} ....from postsDB`)
+    const postId = req.params.postId;
+    
+    const response = await Post.findByIdAndDelete(postId);
+    
+    res.sendStatus(200);
+});
+
+router.put('/:postId', async (req, res) => {
+
+    const postId = req.params.postId;
+    const title = req.body.title;
+    const textBody = req.body.textBody;
+
+    await Post.findByIdAndUpdate(postId, { title, textBody });
+    console.log('post is updated');
     res.sendStatus(200);
 })
 

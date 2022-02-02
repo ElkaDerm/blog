@@ -1,4 +1,4 @@
-import { create, getAll, getOne, deletePost } from "../client/blog-post.js";
+import { create, getAll, getOne, deletePost, update } from "../client/blog-post.js";
 
 
 export async function createPost (title, postText, userId) {
@@ -45,5 +45,17 @@ export async function deleteOnePost (postId, token) {
 
     } catch (error) {
         console.log (error.message)
+    }
+}
+
+export async function updatePost(title,textBody, postId, token) {
+    try {
+        
+        await update(postId, title,textBody, token);
+        console.log('post ist updated ....postService')
+
+    } catch (error) {
+        console.log (error.message)
+        
     }
 }

@@ -4,7 +4,7 @@ const postSchema= new mongoose.Schema({
 
     title: String,
     textBody: String,
-    likeCount:{type:Number, default:0},
+    likeCount:[],
     owner:{
         type: mongoose.Types.ObjectId,
         ref:'User'
