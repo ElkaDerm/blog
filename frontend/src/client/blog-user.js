@@ -35,6 +35,12 @@ export async function register (username, password) {
     }
 
 }
- export async function logout(username) {
+ export async function logout() {
+
+    const res= await fetch('/users/logout');
+
+    if (res.status!==200) {
+        throw new Error('Logout unsuccessful!')
+    }
 
  }

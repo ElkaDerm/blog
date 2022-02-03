@@ -113,6 +113,7 @@ body {
     top: 0;
     margin: 0;
     width: 100vw;
+    height:7vh;
   }
 nav ul {
   position:relative;
@@ -222,8 +223,8 @@ nav li a:hover {
   border: 7px solid darkcyan;
   border-radius: 15px ;
 
-  width: 22vw;
-  height: 20vh;
+  width: 30vw;
+  height: 30vh;
  }
 
  .login h3 {
@@ -238,24 +239,26 @@ nav li a:hover {
   font-size: 20pt;
   padding: 2vh;
   margin: 2vh;
+  
 
 }
 
  .login label {
   text-align: left;
-  font-size: 15pt;
+  font-size: 20pt;
  
   width: 50vw;
-  height: 10vh;
+  height: 20vh;
  
   margin: 10vh 0;
 }
 
 .login input {
   width: 100%;
-  height: 3vh;
-  font-size: 10pt;
+  height: 4vh;
+  font-size: 14pt;
   border-radius: 5px;
+  bottom: 10px;
 
  }
 
@@ -266,12 +269,15 @@ nav li a:hover {
   opacity: 0.8;
 }
 
+.login > form > div {
+  margin: 2vh 0;
+}
+
  .login button {
   width: 8vw;
   height: 5vh;
   position: absolute;
-  left: 14.5vw;
-  
+ 
   border-radius: 10px;
   border-color: transparent;
   
@@ -280,8 +286,7 @@ nav li a:hover {
   font-size: 12pt;
   font-weight: bold;
  
-  margin-top: 5vh;
-  margin-left: 5vw;
+  margin: 5vh 11vw;
 }
 
  .login button:hover{
@@ -320,39 +325,39 @@ nav li a:hover {
    background-color: #333;
    opacity: 0.7;
  
-   width: 22vw;
-   height: 20vh;
+   width: 30vw;
+   height: 30vh;
   }
  
   .register h3 {
    position: absolute;
-   left: 36.5%;
    top: 3vh;
-   left: 7vw;
+   left: 10vw; 
  
    text-align: center;
    font-family: Arial, Helvetica, sans-serif;
    color: rgb(0, 207, 207);
-   font-size: 20pt;
+   font-size: 25pt;
+
    padding: 2vh;
    margin: 2vh;
  }
  
   .register label {
    text-align: left;
-   font-size: 15pt;
+   font-size: 20pt;
    color: rgb(0, 207, 207);
   
    width: 50vw;
-   height: 10vh;
+   height: 20vh;
   
    margin: 10vh 0;
  }
  
  .register input {
    width: 100%;
-   height: 3vh;
-   font-size: 10pt;
+   height: 4vh;
+   font-size: 16pt;
    border-radius: 5px;
  
   }
@@ -368,7 +373,7 @@ nav li a:hover {
    width: 8vw;
    height: 5vh;
    position: absolute;
-   left: 14.5vw;
+   left: 10vw;
    
    border-radius: 10px;
    border-color: transparent;
@@ -378,7 +383,7 @@ nav li a:hover {
    font-size: 12pt;
    font-weight: bold;
   
-   margin-top: 2vh;
+   margin-top: 5vh;
    margin-left: 5vw;
  }
  
@@ -402,11 +407,21 @@ nav li a:hover {
     
   }
   .details #author {
-    position:absolute;
-    font-size: 17pt;
-    color: tomato;
-    top:12vh;
-    left:45vw;
+    position: absolute; 
+    top: 85vh;
+    left: 79vw;
+
+    width: 20vw;
+    height: 15vh;
+    
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20pt;
+    color: #333;
+    text-align: center;
+
+    background-color: #E5E3E8;
+   
   }
   .details h3 {
    position: absolute;
@@ -415,14 +430,17 @@ nav li a:hover {
  
    text-align: center;
    font-family: Arial, Helvetica, sans-serif;
-   color: darkcyan;
-   font-size: 30pt;
+   color: rgb(40, 44, 44);
+   font-size: 20pt;
 
    width: 50vw;
-   height: 2.5vh;
-   padding: 2vh;
+   height: 4vh;
+
+   padding: 0 2vh;
    margin: 2vh;
-   overflow-y:auto;
+   overflow-y:hidden;
+
+   border-bottom: 3px solid rgb(91, 168, 168) ;
  
  }
 
@@ -483,15 +501,15 @@ nav li a:hover {
      width: 50vw;
      height: 60vh;
 
-     background-color: rgb(70, 129, 129);
+     background-color: rgba(70, 129, 129, 0.5);
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.274);
      border-radius: 15px;
-     color: whitesmoke;
+     color: black;
      text-align: justify;
      font-size: 20pt;
      opacity: 0.8;
 
-     padding: 1vw;
+     padding: 0 2vw;
      overflow-y: auto;
      
    }
@@ -502,32 +520,7 @@ nav li a:hover {
      font-size: 17pt;
      color: tomato;
    }
-   /* div .onePost{
-     position: absolute;
-     top: 15vh;
-     left: 10vw;
 
-     width: 30vw;
-     height: 50 vh;
-     border:4px solid tomato;
-     padding: 1vh;
-     margin: 1vh;
-
-     font-family: Arial, Helvetica, sans-serif;
-   }
-
-  .onePost h4{
-     font-size: 12pt;
-   }
-
-   .onePost span {
-     font-size: 12pt;
-     font-style: italic;
-   }
-
-   .onePost article {
-   
-   } */
 
    .grid-container {
    
@@ -570,6 +563,7 @@ nav li a:hover {
     position:absolute;
     top: 36vh;
     left:2vw;
+    
     font-size: 40pt;
     text-decoration-line: underline;
   }
@@ -589,8 +583,13 @@ nav li a:hover {
     color: lightseagreen;
     text-align: center;
     font-weight: bold;
+
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
     margin: 0;
-    padding: 0;
+    padding: 0 3%;
   }
 
   .onePost>div>article {
@@ -650,3 +649,40 @@ nav li a:hover {
     padding: 2vw;
 
   }
+
+  .homePage {
+    background-image: url("../public/images/minimalist-wallpaper-34.jpg");
+    width: 100vw;
+    height: 93vh;
+    background-size: cover;
+    
+    position: absolute;
+    top:7vh;
+    
+  }
+
+.homePage > h1 {
+
+  font-size: 32pt;
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(99, 76, 39);
+  font-weight: bold;
+  text-align: center;
+  
+}
+
+.homePage > article{
+
+  position: relative;
+  left: 20vw;
+  height: 60vh;
+  width: 60vw;
+
+}
+
+.homePage > article > p {
+  color: rgb(99, 76, 39);
+  font-size: 27pt;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: justify;
+}

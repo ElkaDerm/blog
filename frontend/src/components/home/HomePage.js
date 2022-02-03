@@ -6,8 +6,17 @@ export function HomePage () {
 
 
     return (
-        <>
-        Hello from Home page!
-        </>
+       <div className="homePage">
+          <h1>Wellcome, friends!</h1>
+          <article> 
+            <p> Lorem impsum dolore ... Lorem impsum dolore ... Lorem impsum dolore ... Lorem impsum dolore ...
+            </p>
+            <p> Lorem impsum dolore ... Lorem impsum dolore ... Lorem impsum dolore ... Lorem impsum dolore ...
+            </p>
+            <p> Lorem impsum dolore ... Lorem impsum dolore ... Lorem impsum dolore ... Lorem impsum dolore ...
+            </p>
+          </article>
+         
+       </div>
     )
 }

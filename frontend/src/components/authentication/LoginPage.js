@@ -32,18 +32,18 @@ export function LoginPage() {
             
             <form onSubmit={onSubmit}>
                 <div> 
-                    <div>
+                   
                         <label htmlFor="username">Username:</label>
-                    </div>
                     <input type="text" name="username" value={state.username}
                         onChange={(e) => setState((previousState) => ({ ...previousState, username: e.target.value }))} />
+                   
                 </div>
                 <div>
-                    <div>
+                    
                         <label htmlFor="password">Password:</label>
-                    </div>
-                    <input type="password" name="password" value={state.password}
+                        <input type="password" name="password" value={state.password}
                         onChange={(e) => setState((previousState) => ({ ...previousState, password: e.target.value }))} />
+                   
                 </div>
                 <button type="submit">Log in</button>
             </form>

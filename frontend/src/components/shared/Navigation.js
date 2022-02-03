@@ -1,12 +1,13 @@
 
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext.js";
+
 
 
 export function Navigation() {
 
-
+    const navigate= useNavigate();
     const { authState } = useContext(AuthContext);
     console.log('from navigation')
     console.log(authState.username)
@@ -35,7 +36,7 @@ export function Navigation() {
                 <Link to='create'>Create post</Link>
             </li>
             <li>
-                <Link to='logout'>Log out</Link>
+                <Link to='' onClick={onLogout}>Log out</Link>
             </li>
         </ul>
     ) : (
@@ -56,15 +57,20 @@ export function Navigation() {
             </li>
         </ul>
     )
-
+    function onLogout() {
+        authState.isAuthenticated=false;
+        authState.username='';
+        authState.token='';
+        authState.userId='';
+         
+         console.log('logout successful!')
+            navigate('/');
+        
+    }
 
 
     return (
         <nav >
-
-            {/* <Link to='/'>
-                <strong>Blog</strong>
-            </Link> */}
 
             {navigationSwitch}
 

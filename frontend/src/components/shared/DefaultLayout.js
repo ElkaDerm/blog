@@ -5,15 +5,15 @@ import { Footer } from "./Footer.js";
 import { Navigation } from "./Navigation.js";
 
 
-export function DefaultLayout () {
+export function DefaultLayout() {
     return (
         <div>
             <nav>
-                <Navigation/>
+                <Navigation />
             </nav>
-            <Outlet/>
+            <Outlet />
             <footer>
-                <Footer/>
+                <Footer />
             </footer>
         </div>
     )

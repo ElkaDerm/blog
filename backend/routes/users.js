@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 
 })
 
-router.post('/regist', async (req, res, next) => {
+router.post('/regist', async (req, res) => {
     console.log('from backend /users/register')
 
     let username = req.body.username;
@@ -51,7 +51,8 @@ router.post('/sing_in', async (req, res, next) => {
     
 })
 
-router.post('/logout' , async (req, res) =>{
+router.get('/logout' , async (req, res) =>{
+    console.log(req.params)
     
 })
 

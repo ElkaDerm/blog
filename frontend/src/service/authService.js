@@ -1,6 +1,6 @@
 
 
-import { singIn, register } from "../client/blog-user.js"
+import { singIn, register, logout } from "../client/blog-user.js"
 
 export async function login(username, password) {
 
@@ -24,6 +24,16 @@ export async function authRegister (username, password) {
 
         // const user= await singIn(username, password);
         // console.log ('logged in after register')
+        
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+export async function logoutUser() {
+    try {
+        await logout();
+        console.log('logout successful!')
         
     } catch (error) {
         console.log(error.message)
