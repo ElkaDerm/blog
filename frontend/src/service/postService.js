@@ -1,4 +1,4 @@
-import { create, getAll, getOne, deletePost, update } from "../client/blog-post.js";
+import { create, getAll, getOne, deletePost, update, ratingPost } from "../client/blog-post.js";
 
 
 export async function createPost (title, postText, userId) {
@@ -56,6 +56,18 @@ export async function updatePost(title,textBody, postId, token) {
 
     } catch (error) {
         console.log (error.message)
+        
+    }
+}
+
+export async function postRating(userId,postId) {
+    try {
+        await ratingPost(userId,postId)
+
+        console.log('post is rated!')
+    } catch (error) {
+
+        console.log(error.message)
         
     }
 }

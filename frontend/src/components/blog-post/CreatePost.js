@@ -33,7 +33,7 @@ export function CreatePost() {
 
 
     return (
-        <div className="background">
+        <div className="create-post">
 
         
         <div className="form">

@@ -63,3 +63,16 @@ export async function update(postId, title, textBody, token) {
 
     console.log(res.status);
 }
+
+export async function ratingPost (userId, postId) {
+
+   const res= await fetch(`/posts/${postId}`, {
+        method:'PATCH',
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify({userId})
+    });
+
+    console.log(res.status)
+ }

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { deleteOnePost, getOnePost } from "../../service/postService.js";
+import { deleteOnePost, getOnePost, postRating } from "../../service/postService.js";
 import { AuthContext } from "../../context/AuthContext.js";
 
 export function DetailsPage() {
@@ -39,50 +39,27 @@ export function DetailsPage() {
         navigate('/blog')
     }
 
-    function buttonSwitch(userId, owner) {
-
-
-        if (!userId) {
-
-            return (
-                ''
-            )
-        } else {
-            if (owner) {
-
-                const ownerId = owner._id
-
-                if (ownerId === userId) {
-                    return (<ul>
-
-                        <li>
-                            <Link to={`/edit/${postId}`}>Edit</Link>
-                        </li>
-                        <li>
-                            <Link to={`/blog`} onClick={deleteFunc}>Delete</Link>
-                        </li>
-
-                    </ul>
-
-                    )
-                } else {
-                    return (
-                        <ul>
-                            <li>
-                                <Link to={`/blog/rating/${postId}`} >Like</Link>
-                            </li>
-                        </ul>
-                    )
-
-                }
-
-
-            }
+    
+    function likeButton() {
+        
+        const likes = post.likeCount?.find(x => x._id === userId);
+        
+        const isOwner = userId === post.owner?._id;
+    
+        if (!likes && !isOwner) {
+            return (<ul>
+                <li>
+                <Link to='' onClick={rating}>Like</Link>
+                </li>
+            </ul>)
         }
 
+    }
 
-
-
+    async function rating(e) {
+        e.preventDefault();
+        await postRating(userId, postId);
+        navigate(`/blog`);
     }
 
 
@@ -97,11 +74,23 @@ export function DetailsPage() {
                 </p>
             </section>
 
-            {buttonSwitch(userId, owner)}
+            {userId && (userId === post.owner?._id
+                ? <ul>
+
+                    <li>
+                        <Link to={`/edit/${postId}`}>Edit</Link>
+                    </li>
+                    <li>
+                        <Link to={`/blog`} onClick={deleteFunc}>Delete</Link>
+                    </li>
+
+                </ul>
+                : (likeButton())
+              
+
+            )}
 
             <span> {post.likeCount?.length} likes</span>
-
-
 
         </div>
 

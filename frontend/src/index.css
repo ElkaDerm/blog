@@ -13,10 +13,10 @@ body {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
-.background {  
+.create-post {  
   margin: 0;
   padding: 0;
-  background-image: url('../public/images/create-post-2.jpg');
+  background-image: url('../public/images/mat4arok.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -33,6 +33,7 @@ body {
 
 .form h3{
   text-align: center;
+  color: #BF9B5D;
   font-size: 25pt;
   padding-top: 10vh;
 }
@@ -40,6 +41,9 @@ body {
 .form label {
   text-align: left;
   font-size: 20pt;
+  color: darkcyan;
+  font-weight: bold;
+ 
   width: 50vw;
   height: 10vh;
   margin: 10vh 0;
@@ -203,7 +207,7 @@ nav li a:hover {
  div .login {
    width: 100vw;
    height: 100vh;
-   background-image: url('../public/images/modern-desk-white.jpg');
+   background-image: url('../public/images/green-match-3.jpg');
    background-size: cover;
    background-position: center;
    
@@ -220,7 +224,7 @@ nav li a:hover {
   
   margin: auto;
   padding: 15vh 5vw;
-  border: 7px solid darkcyan;
+  border: 7px solid #BF9B5D;
   border-radius: 15px ;
 
   width: 30vw;
@@ -235,7 +239,7 @@ nav li a:hover {
 
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  color: black;
+  color: #BF9B5D;
   font-size: 20pt;
   padding: 2vh;
   margin: 2vh;
@@ -246,6 +250,7 @@ nav li a:hover {
  .login label {
   text-align: left;
   font-size: 20pt;
+  color: #BF9B5D;
  
   width: 50vw;
   height: 20vh;
@@ -259,6 +264,7 @@ nav li a:hover {
   font-size: 14pt;
   border-radius: 5px;
   bottom: 10px;
+  background-color: #e6d7b6;
 
  }
 
@@ -281,7 +287,7 @@ nav li a:hover {
   border-radius: 10px;
   border-color: transparent;
   
-  background-color: darkcyan;
+  background-color: #BF9B5D;
   color: #333;
   font-size: 12pt;
   font-weight: bold;
@@ -302,7 +308,7 @@ nav li a:hover {
   div .register {
     width: 100vw;
     height: 100vh;
-    background-image: url('../public/images/create-modern-post.jpg');
+    background-image: url('../public/images/blue-match-2.jpg');
     background-size: cover;
     background-position: center;
     
@@ -319,11 +325,10 @@ nav li a:hover {
    
    margin: auto;
    padding: 15vh 5vw;
-   border: 7px solid darkcyan;
+   border: 7px solid #3a708f;;
    border-radius: 15px ;
 
-   background-color: #333;
-   opacity: 0.7;
+   background-color: transparent;
  
    width: 30vw;
    height: 30vh;
@@ -336,7 +341,7 @@ nav li a:hover {
  
    text-align: center;
    font-family: Arial, Helvetica, sans-serif;
-   color: rgb(0, 207, 207);
+   color: #3a708f;
    font-size: 25pt;
 
    padding: 2vh;
@@ -346,7 +351,7 @@ nav li a:hover {
   .register label {
    text-align: left;
    font-size: 20pt;
-   color: rgb(0, 207, 207);
+   color: #3a708f;;
   
    width: 50vw;
    height: 20vh;
@@ -378,8 +383,8 @@ nav li a:hover {
    border-radius: 10px;
    border-color: transparent;
    
-   background-color: rgb(0, 207, 207);
-   color: #333;
+   background-color: #3a708f;;
+   color: whitesmoke;
    font-size: 12pt;
    font-weight: bold;
   
@@ -532,7 +537,7 @@ nav li a:hover {
     text-align: center;
     border-radius: 4px;
 
-    background-image: url('../public/images/retro-homePage.jpg');
+    background-image: url('../public/images/home-matcharok.jpg');
     background-size: cover;
 
     margin: auto;
@@ -543,7 +548,8 @@ nav li a:hover {
   .grid-container > div {
     
     
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+    /* background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)); */
+    background-color:rgba(8, 8, 8, 0.6);
     border: 1px solid transparent;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
 
