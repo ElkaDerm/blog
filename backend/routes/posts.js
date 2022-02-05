@@ -22,7 +22,7 @@ router.post('/create', async (req, res) => {
 
 router.get('/:postId', async (req, res) => {
 
-    const post = await Post.findById({ _id: req.params.postId }).populate('owner');
+    const post = await Post.findById({ _id: req.params.postId }).populate('owner').populate('likeCount');
 
     res.json(post)
 })
@@ -44,6 +44,15 @@ router.put('/:postId', async (req, res) => {
 
     await Post.findByIdAndUpdate(postId, { title, textBody });
     console.log('post is updated');
+    res.sendStatus(200);
+})
+
+router.patch('/:postId', async (req, res) => {
+    
+    const post= await Post.findById({_id:req.params.postId})
+    const userId= req.body.userId;
+    post.likeCount.push(userId);
+    post.save();
     res.sendStatus(200);
 })
 
