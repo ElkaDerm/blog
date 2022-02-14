@@ -52,8 +52,16 @@ router.patch('/:postId', async (req, res) => {
     const post= await Post.findById({_id:req.params.postId})
     const userId= req.body.userId;
     post.likeCount.push(userId);
-    post.save();
+    await post.save();
     res.sendStatus(200);
+})
+
+router.get('/profile/:userId', async (req, res) => {
+    const userId= req.params.userId;
+
+    const posts= await Post.find().where({owner:userId}).populate('owner');
+
+    res.json(posts);
 })
 
 

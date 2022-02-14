@@ -76,3 +76,9 @@ export async function ratingPost (userId, postId) {
 
     console.log(res.status)
  }
+
+ export async function getMyAllPosts(userId) {
+     const res= await fetch(`/posts/profile/${userId}`);
+     const data= await res.json();
+     return data;
+ }

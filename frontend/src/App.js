@@ -13,6 +13,7 @@ import { DefaultLayout } from './components/shared/DefaultLayout.js';
 import { NotFoundPage } from './components/errors/NotFoundPage.js';
 import { AuthProvider } from './context/AuthProvider.js';
 import { EditPage } from './components/blog-post/EditPage.js';
+import { ProfilePage } from './components/blog-post/ProfilePage.js';
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
                     <Route path='edit/:postId' element={<EditPage />} />
                     <Route path='register' element={<RegisterPage />} />
                     <Route path='login' element={<LoginPage />} />
-
+                    <Route path='profile/:userId' element={<ProfilePage />} />
                     <Route index element={<HomePage />} />
                 </Route>
 

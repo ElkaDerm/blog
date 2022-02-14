@@ -10,9 +10,9 @@ export function Navigation() {
     const navigate= useNavigate();
     const { authState } = useContext(AuthContext);
     console.log('from navigation')
-    console.log(authState.username)
-
+    console.log(authState.username);
     const greetingText = authState.username;
+    const userId=authState.userId
     const isAuthenticated = authState && authState.isAuthenticated;
 
     const navigationSwitch = isAuthenticated ? (
@@ -25,7 +25,7 @@ export function Navigation() {
             </li>
             <li>
 
-                <Link to='profile' id="greeting">Wellcome, {greetingText} !</Link>
+                <Link to={`profile/${userId}`} id="greeting">Wellcome, {greetingText} !</Link>
             </li>
             <li>
 
