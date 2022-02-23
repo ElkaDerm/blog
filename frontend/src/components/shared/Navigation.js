@@ -7,12 +7,13 @@ import { AuthContext } from "../../context/AuthContext.js";
 
 export function Navigation() {
 
-    const navigate= useNavigate();
-    const { authState } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const { authState, logout } = useContext(AuthContext);
     console.log('from navigation')
     console.log(authState.username);
     const greetingText = authState.username;
-    const userId=authState.userId
+    const userId = authState.userId
     const isAuthenticated = authState && authState.isAuthenticated;
 
     const navigationSwitch = isAuthenticated ? (
@@ -43,7 +44,7 @@ export function Navigation() {
         <ul>
             <li id="home">
                 <Link to='/'>
-                   <strong>Blog</strong> 
+                    <strong>Blog</strong>
                 </Link>
             </li>
             <li>
@@ -58,14 +59,9 @@ export function Navigation() {
         </ul>
     )
     function onLogout() {
-        authState.isAuthenticated=false;
-        authState.username='';
-        authState.token='';
-        authState.userId='';
-         
-         console.log('logout successful!')
-            navigate('/');
-        
+        logout();
+
+        navigate('/');
     }
 
 
@@ -73,7 +69,6 @@ export function Navigation() {
         <nav >
 
             {navigationSwitch}
-
 
         </nav>
     )

@@ -1,19 +1,21 @@
 
 
-export async function singIn (username, password) {
+export async function signIn (username, password) {
 
-    const response= await fetch("/users/sing_in", {
+    const response= await fetch("/users/sign_in", {
         method:"POST",
         headers:{
             "Content-type":"application/json"
         },
         body:JSON.stringify({username,password})
     })
-      const user= await response.json()
-    
-
+    const user= await response.json();
+    console.log(response.status)
+    if (response.status !==200) {
+        throw new Error('Can not be logged in!')
+    }
     if (!user) {
-        throw new Error('Log in failed')
+        throw new Error('Log in failed!')
     }
      return user
      
@@ -22,7 +24,7 @@ export async function singIn (username, password) {
 
 export async function register (username, password) {
    
-    const response = await fetch("/users/regist", {
+    const response= await fetch("/users/regist", {
         method:"POST",
         headers:{
             "Content-type":"application/json"
@@ -30,8 +32,8 @@ export async function register (username, password) {
         body:JSON.stringify({username, password})
     });
 
-    if (response.status !==204) {
-        throw new Error('Can not be registered!')
+    if (response.status !==200) {
+        throw new Error('error response')
     }
 
 }

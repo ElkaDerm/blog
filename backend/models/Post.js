@@ -2,8 +2,8 @@ const mongoose= require('mongoose');
 
 const postSchema= new mongoose.Schema({
 
-    title: String,
-    textBody: String,
+    title:{type: String, required:true, minlength:3, maxlength:50},
+    textBody: {type:String, required:true, minlength:3, maxlength:500},
     likeCount:[{
         type:mongoose.Types.ObjectId,
         ref:'User'

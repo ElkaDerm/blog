@@ -24,7 +24,7 @@ router.get('/:postId', async (req, res) => {
 
     const post = await Post.findById({ _id: req.params.postId }).populate('owner').populate('likeCount');
 
-    res.json(post)
+    res.json(post);
 })
 
 router.delete('/delete/:postId', async (req, res) => {
@@ -49,7 +49,7 @@ router.put('/:postId', async (req, res) => {
 
 router.patch('/:postId', async (req, res) => {
     
-    const post= await Post.findById({_id:req.params.postId})
+    const post= await Post.findById({_id:req.params.postId});
     const userId= req.body.userId;
     post.likeCount.push(userId);
     await post.save();

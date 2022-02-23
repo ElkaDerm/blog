@@ -3,35 +3,48 @@
 import React, { useCallback, useState } from "react";
 import { login } from "../service/authService.js";
 import { AuthContext } from "./AuthContext.js";
+import { useNavigate } from "react-router-dom";
 
-export function AuthProvider ({children}) {
+const initialState = {
+    isAuthenticated: false,
+    username: '',
+    userId: '',
+    token: '',
+    errorMessage: undefined
+}
 
-    const [authState, setAuthState] = useState({
-        isAuthenticated:false,
-        username:'',
-        userId:'',
-        token:'',
-        errorMessage:undefined});
-    
-    const authenticate= useCallback(async (username, password) => {
+export function AuthProvider({ children }) {
 
-        try{
+
+    const [authState, setAuthState] = useState(initialState);
+
+    const authenticate = useCallback(async (username, password) => {
+
+        try {
+
+            const user = await login(username, password);
+
+            setAuthState({ isAuthenticated: true, username: user.username, userId: user._id, token: '' });
+
+        } catch (err) {
             
-          const user=  await login(username,password);
-
-            setAuthState({isAuthenticated:true,username:user.username,userId:user._id, token:''});
-
-        }catch (err) {
+            console.log(err.message)
+            setAuthState({ isAuthenticated: false, errorMessage: err.message });
             
-
-            setAuthState({isAuthenticated:false, errorMessage:err.message})
         }
 
+    }, []);
+
+    const logout=useCallback(()=>{
+        setAuthState(initialState)
     },[])
 
-    return (
-        <AuthContext.Provider value={{authState, authenticate}}>
-            {children}
-        </AuthContext.Provider>
-    )
+
+
+
+return (
+    <AuthContext.Provider value={{ authState, authenticate, logout}}>
+        {children}
+    </AuthContext.Provider>
+)
 }

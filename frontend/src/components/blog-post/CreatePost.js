@@ -24,7 +24,9 @@ export function CreatePost() {
 
         const title = formData.get('title')
         const postText = formData.get('postcontent')
-
+        if (!title || !postText) {
+            alert('all fielsd are requred')
+        }
         createPost(title, postText, userId)
         console.log(title, postText)
 

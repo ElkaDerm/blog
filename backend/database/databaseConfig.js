@@ -7,9 +7,9 @@ const mongoose= require('mongoose');
             useNewUrlParser:true,
             serverSelectionTimeoutMS:5000
         })
-        console.log ('Database is connected....')
+        console.log ('Database is connected....');
     } catch (error) {
-        console.log (error)
+        console.log (error);
     }
     
 }

@@ -1,0 +1,9 @@
+.error {
+    position: absolute;
+    top:25vh;
+    right:10vw;
+    
+}
+.error p {
+    color: red;
+}
