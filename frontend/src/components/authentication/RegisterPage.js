@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext.js";
-import { authRegister } from "../../service/authService.js";
 import { useNavigate } from "react-router-dom";
 import { NotificationContext } from "../../context/NotificationContext.js";
 
@@ -8,7 +7,7 @@ import { NotificationContext } from "../../context/NotificationContext.js";
 
 export function RegisterPage() {
 
-    const { authenticate } = useContext(AuthContext)
+    const { register } = useContext(AuthContext)
     const navigate = useNavigate()
     const { addNotification } = useContext(NotificationContext)
 
@@ -27,19 +26,19 @@ export function RegisterPage() {
             e.currentTarget.username.value = '';
             e.currentTarget.password.value = '';
             e.currentTarget.repeatPass.value = '';
-           return;
+            return;
         }
 
-        if (username.length<3 || username.length>20) {
+        if (username.length < 3 || username.length > 20) {
             addNotification('Username must be between 3 and 20 characters!');
             e.currentTarget.username.value = '';
             return;
-           
+
         }
-        if (password.length<3) {
+        if (password.length < 3) {
             addNotification('Password must be at least 3 characters long!');
             e.currentTarget.password.value = '';
-           return;
+            return;
         }
         if (password !== repeatPassword) {
             addNotification('Passwords do not match!');
@@ -48,21 +47,23 @@ export function RegisterPage() {
             return;
         }
 
-        // to check:
+
         try {
-            
-            authRegister(username, password);
+
+            register(username, password, repeatPassword).then(() => {
+                navigate('/')
+
+            })
             console.log('after auth/try')
-            
+
         } catch (error) {
             addNotification(`${error.message}`)
             console.log('after catch')
             navigate('/register');
-            
+
         }
-        
-        authenticate(username, password)
-         navigate('/') 
+
+        // authenticate(username, password)
 
         console.log('after authRegister')
 

@@ -17,19 +17,19 @@ export async function login(username, password) {
     }
 }
 
-export async function authRegister(username, password) {
+export async function authRegister(username, password, passwordConfirmation) {
     console.log('inside authreg....')
     try {
-        await register(username, password)
-        console.log('registered .. from authService')
+     const user=  await register(username, password, passwordConfirmation);
 
-        // const user= await signIn(username, password);
-        // console.log ('logged in after register')
+        console.log('registered .. from authService,', user);
+        return user;
 
     } catch (error) {
         console.log('inside catch.....')
         throw new Error('Registration unsuccessful!')
     }
+
 }
 
 export async function logoutUser() {

@@ -5,7 +5,7 @@ export async function signIn (username, password) {
     const response= await fetch("/users/sign_in", {
         method:"POST",
         headers:{
-            "Content-type":"application/json"
+            "Content-Type":"application/json"
         },
         body:JSON.stringify({username,password})
     })
@@ -22,19 +22,20 @@ export async function signIn (username, password) {
 
 }
 
-export async function register (username, password) {
+export async function register (username, password, passwordConfirmation) {
    
-    const response= await fetch("/users/regist", {
+    const response= await fetch("/users/register", {
         method:"POST",
         headers:{
-            "Content-type":"application/json"
+            "Content-Type":"application/json"
         },
-        body:JSON.stringify({username, password})
+        body:JSON.stringify({username, password, passwordConfirmation})
     });
 
     if (response.status !==200) {
         throw new Error('error response')
     }
+    return  await response.json();
 
 }
  export async function logout() {

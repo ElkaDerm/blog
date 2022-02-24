@@ -9,19 +9,20 @@ router.get('/', async (req, res) => {
 
 })
 
-router.post('/regist', async (req, res) => {
+router.post('/register', async (req, res) => {
     console.log('from backend /users/register')
 
-    let username = req.body.username;
-    let password = req.body.password;
+    const username = req.body.username;
+    const password = req.body.password;
+    const passwordConfirmation=req.body.passwordConfirmation;
 
-    const hashedPass = await bcrypt.hash(password, 10)
-    const newUser = { username, password: hashedPass }
+    const hashedPass = await bcrypt.hash(password, 10);
+    const newUser = { username, password: hashedPass };
 
 
-     await User.create(newUser);
+    const user= await User.create(newUser);
     
-    res.send();
+    res.json(user);
 
 
 })

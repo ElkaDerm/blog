@@ -7,7 +7,7 @@ import { types } from '../../context/NotificationContext.js'
 export function LoginPage() {
 
     const { authenticate } = useContext(AuthContext)
-    const {  addNotification } = useContext(NotificationContext)
+    const { addNotification } = useContext(NotificationContext)
     const [state, setState] = useState({
         username: '',
         password: ''
@@ -23,11 +23,11 @@ export function LoginPage() {
         const username = state.username;
         const password = state.password;
 
-        login(username, password)
+        authenticate(username, password)
             .then(() => {
                 addNotification('You are loged in!', types.success);
-                setTimeout(()=>{
-                navigate('/blog');
+                setTimeout(() => {
+                    navigate('/blog');
 
                 }, 3000)
             })
@@ -36,7 +36,7 @@ export function LoginPage() {
                 navigate('/login')
             })
 
-        authenticate(state.username, state.password);
+        // authenticate(state.username, state.password);
 
     }
 
