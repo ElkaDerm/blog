@@ -12,7 +12,7 @@ import { HomePage } from "./components/home/HomePage.js";
 import { DefaultLayout } from './components/shared/DefaultLayout.js';
 import { NotFoundPage } from './components/errors/NotFoundPage.js';
 import { AuthProvider } from './context/AuthProvider.js';
-import { EditPage } from './components/blog-post/EditPage.js';
+import { EditPage } from './components/blog-post/EditPage.js'
 import { ProfilePage } from './components/blog-post/ProfilePage.js';
 import {NotificationProvider} from './context/NotificationContext.js'
 import { Notification } from './components/errors/Notification.js';

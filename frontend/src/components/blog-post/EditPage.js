@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { NotificationContext } from '../../context/NotificationContext.js';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getOnePost, updatePost } from '../../service/postService.js';
 
 
 export function EditPage() {
 
+    const {addNotification}= useContext(NotificationContext);
     const navigate = useNavigate();
+    
     const [post, setPost] = useState({
         title: '',
         textBody: ''
@@ -29,8 +32,21 @@ export function EditPage() {
     function onSubmit(event) {
         event.preventDefault();
 
-        const title = post.title
-        const textBody = post.textBody
+        const title = post.title;
+        const textBody = post.textBody;
+
+        if (!title || !textBody) {
+            addNotification('All fielsd are requred!');
+            return;
+        }
+        if (title.length<3 || title.length>50) {
+            addNotification('Title must contain between 3 and 50 characters!');
+            return;
+        }
+        if (textBody.length<3 || textBody.length>500) {
+            addNotification('Text must contain between 3 and 500 characters!');
+            return;
+        }
 
         updatePost(title, textBody, currentPostId);
         navigate('/blog')
@@ -40,7 +56,7 @@ export function EditPage() {
 
 
     return (
-        <div className="background">
+        <div className="edit">
 
 
             <div className="form">
@@ -51,8 +67,8 @@ export function EditPage() {
                             <label htmlFor="title">Title:</label>
                         </div>
                         <input type="text" name="title" id="title" value={post.title}
-                            onChange={(e) => {
-                                setPost((previousState) => ({ ...previousState, title: e.target.value }))
+                            onChange={(event) => {
+                                setPost((previousState) => ({ ...previousState, title: event.target.value }))
                             }
                             } />
                     </div>
@@ -61,7 +77,7 @@ export function EditPage() {
                             <label htmlFor="postcontent"> Post text:</label>
                         </div>
                         <textarea name="postcontent" id="postcontent" value={post.textBody}
-                            onChange={(e) => setPost((previousState) => ({ ...previousState, textBody: e.target.value }))}
+                            onChange={(event) => setPost((previousState) => ({ ...previousState, textBody: event.target.value }))}
                         ></textarea>
 
                     </div>

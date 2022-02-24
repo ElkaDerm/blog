@@ -6,7 +6,7 @@ import { signIn, register, logout } from "../client/blog-user.js"
 export async function login(username, password) {
 
     try {
-        const user = await signIn(username, password);
+        const user = await signIn(username, password); 
 
         console.log('sign in from authservice')
         console.log(user)

@@ -692,3 +692,7 @@ nav li a:hover {
   font-family: 'Times New Roman', Times, serif;
   text-align: justify;
 }
+
+.edit {
+  background-image: url('../public/images/green-match-2.jpg');
+}

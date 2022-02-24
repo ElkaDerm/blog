@@ -19,8 +19,9 @@ router.post('/regist', async (req, res) => {
     const newUser = { username, password: hashedPass }
 
 
-    const resp = await User.create(newUser);
-    console.log(resp)
+     await User.create(newUser);
+    
+    res.send();
 
 
 })
@@ -40,7 +41,7 @@ router.post('/sign_in', async (req, res) => {
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (!passwordMatch) {
-        return res.status(401).send()
+        return res.status(401).send('Passwords do not much')
     }
     console.log(user)
     res.json(user)
@@ -49,7 +50,7 @@ router.post('/sign_in', async (req, res) => {
 })
 
 router.get('/logout', async (req, res) => {
-    console.log(req.params)
+    console.log(req.params);
 
 })
 
