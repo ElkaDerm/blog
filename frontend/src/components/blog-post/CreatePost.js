@@ -12,7 +12,6 @@ export function CreatePost() {
     const {addNotification}= useContext(NotificationContext);
 
     const userId = authState.userId;
-    console.log(userId);
 
 
     const onSubmit = (e) => {
@@ -29,21 +28,23 @@ export function CreatePost() {
  
             return;
         }
-        if (title.length<3 || title.length>50) {
-            addNotification('Title must contain between 3 and 50 characters!');
+        if (title.length<3 || title.length>100) {
+            addNotification('Title must contain between 3 and 100 characters!');
 
             return;
         }
-        if (postText.length<3 || postText.length>500) {
-            addNotification('Text must contain between 3 and 500 characters!');
+        if (postText.length<3 || postText.length>15000) {
+            addNotification('Text must contain between 3 and 15000 characters!');
   
             return;
         }
 
-        createPost(title, postText, userId)
-        console.log(title, postText)
+        createPost(title, postText, userId).then(()=>navigate('/blog'))
+        .catch(error=>{
+            console.log(error)
+            addNotification(error)
+        });
 
-        navigate('/blog')
     }
 
 

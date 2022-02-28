@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext.js";
 import { useNavigate } from "react-router-dom";
 import { NotificationContext } from "../../context/NotificationContext.js";
-import { login } from "../../service/authService.js";
-import { types } from '../../context/NotificationContext.js'
+import { types } from '../../context/NotificationContext.js';
+
+
+
 export function LoginPage() {
 
     const { authenticate } = useContext(AuthContext)
@@ -22,7 +24,7 @@ export function LoginPage() {
         console.log('from login')
         const username = state.username;
         const password = state.password;
-
+        
         authenticate(username, password)
             .then(() => {
                 addNotification('You are loged in!', types.success);

@@ -15,7 +15,6 @@ export function EditPage() {
     });
     const params = useParams();
     const currentPostId = params.postId;
-    console.log(currentPostId)
 
 
     useEffect(() => {
@@ -39,18 +38,20 @@ export function EditPage() {
             addNotification('All fielsd are requred!');
             return;
         }
-        if (title.length<3 || title.length>50) {
+        if (title.length<3 || title.length>100) {
             addNotification('Title must contain between 3 and 50 characters!');
             return;
         }
-        if (textBody.length<3 || textBody.length>500) {
+        if (textBody.length<3 || textBody.length>15000) {
             addNotification('Text must contain between 3 and 500 characters!');
             return;
         }
-
-        updatePost(title, textBody, currentPostId);
-        navigate('/blog')
-
+      
+        updatePost(title, textBody, currentPostId).then(()=>navigate('/blog'))
+        .catch(err=>{
+                console.log(err)
+                addNotification(err);
+        });
     }
 
 

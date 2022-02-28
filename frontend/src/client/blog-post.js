@@ -11,29 +11,40 @@ export async function create(title, postText, userId, token) {
     })
 
 
-    if (response.status !== 204) {
-        throw new Error('Post is not created');
+    if (response.status !== 200) {
+        const result = await response.json()
+        console.log(result)
+        throw (result.error);
     }
 
 
 }
 
 export async function getAll() {
-
-    console.log(`from blog-post `)
+    
     const res = await fetch("/posts");
+    if (res.status!==200) {
+        const result= await res.json();
+        throw (result.error)
+    }
     const data = await res.json();
-
-
     return data;
 
 }
 
 export async function getOne(postId) {
+
     const res = await fetch(`/posts/${postId}`);
 
-    const data = await res.json();
-    return data;
+    if (res.status !== 200) {
+        const result = await res.json()
+        throw (result.error);
+
+    } else {
+
+        const data = await res.json();
+        return data;
+    }
 }
 
 export async function deletePost(postId, token) {
@@ -43,9 +54,11 @@ export async function deletePost(postId, token) {
             "Content-type": "application/json"
         }
     });
-    console.log(res.status)
+
     if (res.status !== 200) {
-        throw new Error('Post is not deleted');
+        const result = await res.json();
+        console.log(result)
+        throw (result.error);
     }
 }
 
@@ -60,25 +73,33 @@ export async function update(postId, title, textBody, token) {
         body: JSON.stringify({ title, textBody })
 
     })
+    
+    if (res.status !== 200) {
+        const result = await res.json();
+        throw result.error;
+    }
 
-    console.log(res.status);
+
 }
 
-export async function ratingPost (userId, postId) {
+export async function ratingPost(userId, postId) {
 
-   const res= await fetch(`/posts/${postId}`, {
-        method:'PATCH',
-        headers:{
-            "Content-type":"application/json"
+    const res = await fetch(`/posts/${postId}`, {
+        method: 'PATCH',
+        headers: {
+            "Content-type": "application/json"
         },
-        body:JSON.stringify({userId})
+        body: JSON.stringify({ userId })
     });
+     if (res.status!==200) {
+         const result= await res.json();
+         throw result.error;
+     };
+    
+}
 
-    console.log(res.status)
- }
-
- export async function getMyAllPosts(userId) {
-     const res= await fetch(`/posts/profile/${userId}`);
-     const data= await res.json();
-     return data;
- }
+export async function getMyAllPosts(userId) {
+    const res = await fetch(`/posts/profile/${userId}`);
+    const data = await res.json();
+    return data;
+}

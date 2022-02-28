@@ -5,25 +5,21 @@ export async function createPost (title, postText, userId) {
 
     try {
         await create (title, postText, userId);
-        console.log('Post is created!...from postService');
-
 
     } catch (error) {
-        console.log (error.message)
+        throw (error);
     }
 }
 
 export async function allPostsData () {
 
     try {
-        const result= await getAll()
-        console.log('from  postService')
-        
-        
-          return result;
+        const result= await getAll();
+      
+         return result;
 
     } catch (error) {
-        console.log (error.message)
+        throw (error);
     }
 }
 
@@ -34,17 +30,16 @@ export async function getOnePost (postId) {
         return result;
         
     } catch (error) {
-        console.log (error.message)
+        throw (error);
     }
 }
 
 export async function deleteOnePost (postId, token) {
     try {
-        await deletePost (postId)
-       console.log(`post is deleted...`)
+        await deletePost (postId);
 
     } catch (error) {
-        console.log (error.message)
+        throw (error);
     }
 }
 
@@ -52,32 +47,31 @@ export async function updatePost(title,textBody, postId, token) {
     try {
         
         await update(postId, title,textBody, token);
-        console.log('post ist updated ....postService')
 
     } catch (error) {
-        console.log (error.message)
+        console.log(error)
+        throw  (error);
         
     }
 }
 
 export async function postRating(userId,postId) {
     try {
-        await ratingPost(userId,postId)
+        await ratingPost(userId,postId);
 
-        console.log('post is rated!')
     } catch (error) {
 
-        console.log(error.message)
+        throw (error);
         
     }
 }
 
 export async function getMyPosts(userId) {
     try{
- console.log(userId)
       const posts=  await getMyAllPosts(userId);
-      return posts
+      return posts;
+
     }catch (err) {
-        console.log(err)
+        throw (err);
     }
 }

@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { deleteOnePost, getOnePost, postRating } from "../../service/postService.js";
 import { AuthContext } from "../../context/AuthContext.js";
+import {NotificationContext} from "../../context/NotificationContext.js"
 
 export function DetailsPage() {
     const { authState } = useContext(AuthContext);
+    const {addNotification}= useContext(NotificationContext)
     const navigate = useNavigate();
     const userId = authState.userId;
     const params = useParams()
@@ -34,9 +36,14 @@ export function DetailsPage() {
     async function deleteFunc(e) {
         e.preventDefault();
 
-        deleteOnePost(post._id)
-        console.log('is deleteed from detailsPage');
-        navigate('/blog')
+        deleteOnePost(post._id).then(()=>{
+        //    TODO: asking :Are you shure?
+        console.log ('deleted...details page')
+            navigate('/blog');
+        }).catch(error=>{
+            addNotification(error)
+        })
+   
     }
 
     
@@ -58,8 +65,12 @@ export function DetailsPage() {
 
     async function rating(e) {
         e.preventDefault();
-        await postRating(userId, postId);
-        navigate(`/blog`);
+        await postRating(userId, postId).then(()=>{
+            navigate('/blog');
+        }).catch(err=>{
+            addNotification(err)
+        })
+        
     }
 
 
