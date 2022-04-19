@@ -11,7 +11,8 @@ const postSchema= new mongoose.Schema({
     owner:{
         type: mongoose.Types.ObjectId,
         ref:'User'
-    }
+    },
+    // imagePath:{type:String}
 })
 
 const Post= mongoose.model('Post', postSchema);
