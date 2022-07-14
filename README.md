@@ -1,5 +1,5 @@
 # *BLOG* Application
-- This is my first project as a Front-end Developer with React.
+- This is my first project as a __*Front-end and Back-end Developer*__ with ***React***.
 - It is a simple blog application, where users can read and post articles on any topic they like.
 -----
 ## Features :
